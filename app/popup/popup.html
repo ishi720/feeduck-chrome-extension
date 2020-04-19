@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <script src="../lib/jquery/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
+
+  <style type="text/css">
+    .hide {
+      display: none;
+    }
+
+    body {
+      min-width:500px;
+      padding: 5px;
+    }
+
+/*    .clearCacheBtn {
+      display: none;
+      right; right: 6px;
+      position: absolute;
+      top: 7px;
+    }*/
+
+    .header {
+      border-bottom: solid 1px gray;
+      margin-bottom: 10px;
+      font-size: 18px;
+      text-align: center;
+      padding: 6px;
+      font-weight: bold;
+    }
+
+    .not_find {
+      text-align: center;
+      padding: 10px;
+    }
+
+    #rss_url_list {
+      display: block;
+      padding: 0 5px;
+    }
+
+    .rss_url_list {
+      padding: 0 10px;
+      margin-bottom: 5px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="header">
+    Feeduck
+<!--     <button type="button" class="clearCacheBtn btn btn-outline-secondary btn-sm">
+      <i class="fas fa-broom" title="キャッシュを削除する"></i>
+    </button> -->
+  </div>
+  <div id="rss_url_list">
+    <p class="not_find">RSSが見つかりませんでした</p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

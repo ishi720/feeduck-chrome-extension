@@ -1,0 +1,11 @@
+{
+  "name": "feeduck",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "ishi720",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "4.x.x",
+    "jquery": "3.x.x"
+  }
+}
