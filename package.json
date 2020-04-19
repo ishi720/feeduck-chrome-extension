@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/ishi720/feeduck-chrome-extension.git"
   },
-  "author": "",
+  "author": "ishi720",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ishi720/feeduck-chrome-extension/issues"
