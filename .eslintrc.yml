@@ -1,0 +1,16 @@
+rules:
+  indent:
+    - error
+    - 4
+  quotes:
+    - error
+    - single
+  semi:
+    - error
+    - always
+
+env:
+  jquery: true
+
+extends:
+  - eslint:recommended

@@ -5,9 +5,9 @@ const zip = require('gulp-zip');
 const fs = require('fs-extra');
 
 gulp.task( 'lib_update', (done) => {
-	fs.copySync('app/node_modules/jquery/dist/', 'app/lib/jquery/');
-	fs.copySync('app/node_modules/bootstrap/dist/', 'app/lib/bootstrap/');
-	done();
+    fs.copySync('app/node_modules/jquery/dist/', 'app/lib/jquery/');
+    fs.copySync('app/node_modules/bootstrap/dist/', 'app/lib/bootstrap/');
+    done();
 });
 
 gulp.task('zip', () => {
@@ -27,14 +27,14 @@ gulp.task('zip', () => {
 gulp.task('release', gulp.series('lib_update','zip'));
 
 gulp.task('default', (done) => {
-	console.log('');
-	console.log('=====================');
-	console.log('       COMMAND       ');
-	console.log('=====================');
-	console.log('$ gulp lib_update');
-	console.log('$ gulp zip');
-	console.log('$ gulp release');
-	console.log('=====================');
-	console.log('');
-	done();
+    console.log('');
+    console.log('=====================');
+    console.log('       COMMAND       ');
+    console.log('=====================');
+    console.log('$ gulp lib_update');
+    console.log('$ gulp zip');
+    console.log('$ gulp release');
+    console.log('=====================');
+    console.log('');
+    done();
 });
