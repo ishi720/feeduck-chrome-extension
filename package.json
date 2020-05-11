@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/ishi720/feeduck-chrome-extension#readme",
   "dependencies": {
-    "fs-extra": "8.x.x",
+    "fs-extra": "9.x.x",
     "gulp": "4.x.x",
     "gulp-zip": "5.x.x"
   }
