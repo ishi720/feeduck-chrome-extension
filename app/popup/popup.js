@@ -13,7 +13,7 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, function(tabs) {
 
             //URLを表示する
             $.each( JSON.parse(localStorage[tabId]), function(i, url) {
-                $('#rss_url_list').append('<input class="rss_url_list form-control" type="text" value="'+ url +'" readonly>');
+                $('#rss_url_list').append('<div class="row rss_url_list"><input class="col-10 form-control" type="text" value="'+ url +'" readonly><button data-link="'+ url +'" class="col-2 btn btn-info LinkOpenBtn">開く</button></div>');
             });
         }
     }
@@ -32,12 +32,24 @@ function load(e) {
             clearInterval(timer);
 
             // フォーカスが当たったときに全選択にする
-            $('.rss_url_list').focus(function(){
+            $('.rss_url_list input').focus(function(){
                 $(this).select();
+            });
+
+            // 開くボタンクリック時のイベント
+            document.querySelectorAll('.LinkOpenBtn').forEach(function (button) {
+                button.addEventListener('click', LinkOpen);
             });
         }
     }
 };
+
+
+function LinkOpen() {
+    window.open(this.getAttribute('data-link'));
+}
+
+
 
 // キャッシュのクリア
 // function clearCacheBtn(){
