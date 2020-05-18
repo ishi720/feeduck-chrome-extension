@@ -23,7 +23,7 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, function(tabs) {
 //document.querySelector('.clearCacheBtn').addEventListener('click', clearCacheBtn);
 
 // 読み込み完了後の処理
-window.addEventListener("load", load, false);
+window.addEventListener('load', load, false);
 function load(e) {
     var timer = setInterval(jsLoaded, 1000);
     function jsLoaded() {
@@ -42,7 +42,7 @@ function load(e) {
             });
         }
     }
-};
+}
 
 
 function LinkOpen() {

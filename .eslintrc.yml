@@ -12,6 +12,7 @@ rules:
 env:
   jquery: true
   webextensions: true
+  browser: true
 
 extends:
   - eslint:recommended
