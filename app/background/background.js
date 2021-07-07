@@ -55,3 +55,8 @@ chrome.tabs.onActivated.addListener(function (activeInfo) {
         });
     }
 });
+
+// タブを閉じたときのイベント
+chrome.tabs.onRemoved.addListener(function(tabId, info) {
+    localStorage.removeItem(tabId);
+});
