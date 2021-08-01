@@ -13,7 +13,7 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, function(tabs) {
 
             //URLを表示する
             $.each( JSON.parse(localStorage[tabId]), function(i, url) {
-                $('#rss_url_list').append('<div class="row rss_url_list"><input class="col-10 form-control" type="text" value="'+ url +'" readonly><button data-link="'+ url +'" class="col-2 btn btn-info LinkOpenBtn">開く</button></div>');
+                $('#rss_url_list').append('<div class="row rss_url_list"><input class="col form-control" type="text" value="'+ url +'" readonly><button data-link="'+ url +'" class="col-2 btn btn-primary LinkOpenBtn">開く</button></div>');
             });
         }
     }
