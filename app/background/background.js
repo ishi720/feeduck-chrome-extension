@@ -6,28 +6,34 @@ chrome.runtime.onMessage.addListener(
     function(message, sender, callback) {
 
         // タブの情報を取得してバッチの表示処理を行う
-        chrome.tabs.getSelected(null, function(tabs) {
+        chrome.tabs.query({active: true, lastFocusedWindow: true}, function(tabs) {
+
+            if (tabs[0]) {
+                var tabId = tabs[0]['id'];
+            } else {
+                return;
+            }
 
             //タブのバッチを初期化する
-            chrome.browserAction.setBadgeText({
+            chrome.action.setBadgeText({
                 text: '',
-                tabId: tabs.id
+                tabId: tabId
             });
 
             // バッチの表示
             if ( message.rssUrls.length == 0 || message.rssUrls.length == null ) {
-                chrome.browserAction.setBadgeText({
+                chrome.action.setBadgeText({
                     text: '',
-                    tabId: tabs.id
+                    tabId: tabId
                 });
             } else {
-                chrome.browserAction.setBadgeText({
+                chrome.action.setBadgeText({
                     text: message.rssUrls.length + '',
-                    tabId: tabs.id
+                    tabId: tabId
                 });
             }
 
-            localStorage[tabs.id] = JSON.stringify(message.rssUrls);
+            chrome.storage.local.set({[tabId]: message.rssUrls});
         });
     }
 );
@@ -36,27 +42,29 @@ chrome.runtime.onMessage.addListener(
 chrome.tabs.onActivated.addListener(function (activeInfo) {
 
     //保持しているカウントを取り出して表示する
-    if ( localStorage[activeInfo.tabId] ) {
-        if ( JSON.parse(localStorage[activeInfo.tabId]).length !== 0 ) {
-            chrome.browserAction.setBadgeText({
-                text: JSON.parse(localStorage[activeInfo.tabId]).length + '',
-                tabId: activeInfo.tabId
-            });
+    chrome.storage.local.get(String(activeInfo.tabId),function(urls){
+        if ( urls[activeInfo.tabId] ) {
+            if ( urls[activeInfo.tabId].length !== 0 ) {
+                chrome.action.setBadgeText({
+                    text: urls[activeInfo.tabId].length + '',
+                    tabId: activeInfo.tabId
+                });
+            } else {
+                chrome.action.setBadgeText({
+                    text: '',
+                    tabId: activeInfo.tabId
+                });
+            }
         } else {
-            chrome.browserAction.setBadgeText({
+            chrome.action.setBadgeText({
                 text: '',
                 tabId: activeInfo.tabId
             });
         }
-    } else {
-        chrome.browserAction.setBadgeText({
-            text: '',
-            tabId: activeInfo.tabId
-        });
-    }
+    });
 });
 
 // タブを閉じたときのイベント
 chrome.tabs.onRemoved.addListener(function(tabId, info) {
-    localStorage.removeItem(tabId);
+    chrome.storage.local.remove(String(tabId));
 });
