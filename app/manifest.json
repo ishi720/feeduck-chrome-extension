@@ -2,7 +2,7 @@
   "name": "feeduck",
   "description": "表示ページ内のRSSのリンクを表示する拡張機能です。",
   "manifest_version": 3,
-  "version": "1.1.0",
+  "version": "1.1.1",
   "background": {
     "service_worker": "background/background.js"
   },
