@@ -17,6 +17,12 @@ function rssUrlGet() {
         rssUrls.push( absolutePath(href) );
     });
 
+    //重複の削除
+    rssUrls = rssUrls.filter( function(element, index) {
+        return rssUrls.indexOf(element) === index;
+    });
+
+
     return rssUrls;
 
 }
