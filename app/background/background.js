@@ -20,6 +20,10 @@ chrome.runtime.onMessage.addListener(
                 tabId: tabId
             });
 
+            // バッチのデザインの設定
+            chrome.action.setBadgeBackgroundColor({ color: '#2565d7' });
+            chrome.action.setBadgeTextColor({ color: 'white' });
+
             // バッチの表示
             if ( message.rssUrls.length == 0 || message.rssUrls.length == null ) {
                 chrome.action.setBadgeText({

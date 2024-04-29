@@ -22,9 +22,7 @@ function rssUrlGet() {
         return rssUrls.indexOf(element) === index;
     });
 
-
     return rssUrls;
-
 }
 
 
