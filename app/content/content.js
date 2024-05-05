@@ -5,7 +5,6 @@
  * 現在のページに含まれるRSSおよびAtomフィードのURLを取得し、background.jsにメッセージを送信する。
  */
 $(function() {
-    // background.jsにメッセージを送信
     chrome.runtime.sendMessage({rssUrls: rssUrlGet()});
 });
 
